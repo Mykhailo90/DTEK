@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>Tilted Content Slideshow</title>
+		<meta name="description" content="Tilted Content Slideshow: Recreating the FWA.com landing page perspective slider" />
+		<meta name="keywords" content="fwa slider, perspective, 3d, slideshow, animation, web design" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/modernizr.custom.js"></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-7243260-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+	</head>
+	<body>
+		<div class="container">
+			<div class="slideshow" id="slideshow">
+				<ol class="slides">
+					<li class="current">
+						<div class="description">
+							<h2>Tilted Content Slideshow</h2>
+							<p>This slider, as seen on the landing page of the <a href="http://www.thefwa.com/">FWA</a>, plays with 3D perspective and performs some interesting animations on the right-hand side images.</p>
+						</div>
+						<div class="tiltview col">
+							<a href="http://grovemade.com/"><img src="img/1_screen.jpg"/></a>
+							<a href="https://tsovet.com/"><img src="img/2_screen.jpg"/></a>
+						</div>
+					</li>
+					<li>
+						<div class="description">
+							<h2>CSS Animations</h2>
+							<p>We are using 12 different animations for showing and hiding the items of a slide. The animations are defined by randomly adding data-attributes called <code>data-effect-in</code> and <code>data-effect-out</code> for every slide. </p>
+						</div>
+						<div class="tiltview row">
+							<a href="http://pexcil.com/"><img src="img/3_mobile.jpg"/></a>
+							<a href="http://foodsense.is/"><img src="img/4_mobile.jpg"/></a>
+						</div>
+					</li>
+					<li>
+						<div class="description">
+							<h2>Tilted Items</h2>
+							<p>The perspective view is achieved by adding a perspective value to the slide list item and tilting a division that contains the two screenshots.</p>
+						</div>
+						<div class="tiltview col">
+							<a href="http://minimalmonkey.com/"><img src="img/5_screen.jpg"/></a>
+							<a href="http://www.herschelsupply.com/"><img src="img/6_screen.jpg"/></a>
+						</div>
+					</li>
+					<li>
+						<div class="description">
+							<h2>Column or Row</h2>
+							<p>The items in the tilted container are either laid out in a column or in a row. For some directions we need to adjust the animation delays for the items, since we don't want the items to overlap each other when they move in or out.</p>
+						</div>
+						<div class="tiltview row">
+							<a href="http://grovemade.com/"><img src="img/1_mobile.jpg"/></a>
+							<a href="https://tsovet.com/"><img src="img/2_mobile.jpg"/></a>
+						</div>
+					</li>
+					<li>
+						<div class="description">
+							<h2>Responsiveness</h2>
+							<p>For smaller screens, the items on the right hand side will become less opaque and serve as decoration only. The focus will be on the description which will occupy all the width.</p>
+						</div>
+						<div class="tiltview col">
+							<a href="http://pexcil.com/"><img src="img/3_screen.jpg"/></a>
+							<a href="http://foodsense.is/"><img src="img/4_screen.jpg"/></a>
+						</div>
+					</li>
+					<li>
+						<div class="description">
+							<h2>Navigation</h2>
+							<p>For the "line" navigation we use a little trick to make the clickable area a bit bigger: we add a thick white border to the top and bottom of the span. Since the border is part of the element, it will be part of the clickable zone.</p>
+						</div>
+						<div class="tiltview row">
+							<a href="http://minimalmonkey.com/"><img src="img/5_mobile.jpg"/></a>
+							<a href="http://www.herschelsupply.com/"><img src="img/6_mobile.jpg"/></a>
+						</div>
+					</li>
+				</ol>
+			</div><!-- /slideshow -->
+			<div class="codrops-top clearfix">
+				<a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/StackEffects/"><span>Previous Demo</span></a>
+				<span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=18634"><span>Back to the Codrops Article</span></a></span>
+			</div>
+			<header class="codrops-header">
+				<h1>Tilted Content Slideshow <span>Recreating the FWA.com landing page perspective slider</span></h1>	
+			</header>
+			<section class="related">
+				<p>Screenshots from <a href="http://zurb.com/responsive">Zurb's Responsive Gallery</a></p>
+				<h3>If you enjoyed this demo you might also like:</h3>
+				<a href="http://tympanus.net/Development/ScatteredPolaroidsGallery/">
+					<img src="http://tympanus.net/codrops/wp-content/uploads/2014/01/ScatteredPolaroidGallery1-300x162.jpg" />
+					<h3>Scattered Polaroids Gallery</h3>
+				</a>
+				<a href="http://tympanus.net/Development/3DEffectMobileShowcase/">
+					<img src="http://tympanus.net/codrops/wp-content/uploads/2013/08/appshowcase3d-300x162.jpg" />
+					<h3>Mobile Showcase 3D Effect</h3>
+				</a>
+			</section>
+		</div><!-- /container -->
+		<script src="js/classie.js"></script>
+		<script src="js/tiltSlider.js"></script>
+		<script>
+			new TiltSlider( document.getElementById( 'slideshow' ) );
+		</script>
+		<!-- For the demo ad only -->   
+		<script src="http://tympanus.net/codrops/adpacks/demoad.js"></script>
+
+	</body>
+</html>

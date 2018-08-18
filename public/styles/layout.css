@@ -1,0 +1,45 @@
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+main {
+    display: block;
+}
+
+section {
+    padding: 1px 0;
+}
+
+section h2 {
+    text-align: center;
+}
+section > div, .reigistr_menu > div, .header-container, current {
+    width: 85%;
+    max-width: 1640px;
+    margin: 0 auto;
+}
+
+section {
+    padding-bottom: 25px;
+}
+
+tbody {
+    display: grid;
+    height: 75%;
+    grid-template-rows: repeat(6, 16%);
+}
+
+tbody > div {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 100%;
+    text-align: center;
+    height: 16%;
+}

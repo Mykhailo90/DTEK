@@ -1,0 +1,96 @@
+.feedback-container {
+    text-align: center;
+    margin: 50px auto;
+}
+
+.carousel {
+
+    overflow:hidden;
+    position:relative;
+    width:auto;
+}
+
+.carousel img {
+    width: 80px;
+    height: 80px;
+    margin: 20px auto;
+    border-radius: 50%;
+    display: block;
+}
+
+.arrow {
+    position: absolute;
+    top: 60px;
+    padding: 0;
+    font-size: 3em;
+    line-height: 24px;
+    color: #CCCCCC;
+    display: block;
+}
+
+.arrow:focus i {
+    outline: none;
+}
+
+.arrow:hover i {
+    color: #5c5c5c;
+    cursor: pointer;
+}
+
+.gallery {
+    width: 950px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.gallery ul {
+    transition: margin-left 250ms;
+
+    -moz-box-orient:horizontal;
+    -webkit-box-orient:horizontal;
+
+    display:-moz-box;
+    display: -ms-box;
+    display:-webkit-box;
+    display:-o-box;
+    display:box;
+
+    list-style-type:none;
+    margin:0;
+    padding:0;
+
+    display: inline-flex;
+    align-items: center;
+}
+
+.gallery li {
+
+    width:250px;
+    margin-right: 100px;
+}
+
+.feedback-text {
+    text-align: left;
+    font-family:"RobotoBold";
+    font-size: 16px;
+}
+
+.feedback-author {
+    font-family: Bandera_Bold;
+    font-size: 16px;
+}
+
+.circular {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.circular img {
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+}

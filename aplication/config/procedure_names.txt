@@ -1,0 +1,40 @@
+#1
+list_of_programs = (
+DELIMITER //
+
+CREATE PROCEDURE list_of_programs()
+BEGIN
+	SELECT mod_programs.id, mod_programs.page_name,
+		mod_programs.parent_page, img.file_name, svg.svg_code, mod_programs.title,
+		mod_programs.short_info, mod_programs.page_type, img.id AS img_id, svg.id AS svg_id
+		FROM svg 
+		INNER JOIN (img INNER JOIN mod_programs ON img.id = mod_programs.page_img) 
+		ON svg.id = mod_programs.page_svg ORDER BY mod_programs.id;
+END//
+)
+
+#2
+
+list_of_blocks = (
+DELIMITER //
+
+CREATE PROCEDURE list_of_blocks()
+	BEGIN
+SELECT blocks_list.id, blocks_list.final_page_id, blocks_list.N, blocks_list.block_type, img.file_name, block_style.block_name, block_style.style, block_style.function, blocks_list.title, img.id  AS img_id
+FROM img INNER JOIN (block_style INNER JOIN blocks_list ON block_style.id = blocks_list.block_type) ON img.id = blocks_list.img
+ORDER BY blocks_list.N;
+END//
+)
+
+#3
+
+list_of_block_el = (
+DELIMITER //
+
+CREATE PROCEDURE list_of_block_el()
+	BEGIN
+SELECT el_li.id, el_li.parent_block, el_li.NN, el_li.el_list, svg.svg_code, svg.id AS svg_id
+FROM svg INNER JOIN (blocks_list INNER JOIN el_li ON blocks_list.id = el_li.parent_block) ON svg.id = el_li.svg
+ORDER BY el_li.NN;
+END//
+)

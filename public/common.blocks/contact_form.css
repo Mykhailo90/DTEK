@@ -1,0 +1,168 @@
+/* === List Styles === */
+.contact_form ul {
+    /*width:100%;*/
+    list-style-type:none;
+    list-style-position:outside;
+    margin:0px;
+    padding:0px;
+
+    display: block;
+    overflow: hidden;
+}
+
+.contact_form ul .box {
+    display: contents;
+    width: 100%;
+}
+
+
+
+.contact_form input, label, textarea {
+    display: block;
+    background-color: transparent;
+}
+
+.contact_form li{
+    width: 46%;
+    padding-right: 4%;
+    position:relative;
+    float: left;
+    margin-bottom: 30px;
+}
+
+.contact_form .text, .contact_form .text label {
+    width: 100%;
+}
+.contact_form .text textarea {
+    width: 80%;
+}
+
+.contact_form label {
+    border: 2px black;
+}
+.contact_form input {
+    width: 100%;
+    border: 0;
+    /*border-bottom: 1px solid black;*/
+}
+
+
+.contact_form li.label > label {
+    border-bottom: 1px solid #9B9B9B;
+    width: 82%;
+}
+.contact_form li:first-child, .contact_form li:last-child {
+
+}
+
+/* === Form Elements === */
+.contact_form label {
+    /*width:150px;*/
+    /*margin-top: 3px;*/
+    display:inline-block;
+    float:left;
+    /*padding:3px;*/
+}
+.contact_form input {
+    height:20px;
+    /*width:220px;*/
+    padding:5px 8px;
+
+}
+.contact_form textarea {padding:8px; width:300px;}
+.contact_form button {}
+
+/* form element visual styles */
+.contact_form input, .contact_form textarea {
+    /*border:1px solid #aaa;*/
+    /*box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;*/
+    /*border-radius:2px;*/
+    padding-right:30px;
+    -moz-transition: padding .25s;
+    -webkit-transition: padding .25s;
+    -o-transition: padding .25s;
+    transition: padding .25s;
+}
+.contact_form input:focus, .contact_form textarea:focus {
+    /*background: #fff;*/
+    /*border:1px solid #555;*/
+    /*box-shadow: 0 0 3px #aaa;*/
+    /*padding-right:70px;*/
+}
+
+/* === HTML5 validation styles === */
+.contact_form input:required, .contact_form textarea:required {
+    /*background: #fff url(images/red_asterisk.png) no-repeat 98% center;*/
+}
+.contact_form input:required:valid, .contact_form textarea:required:valid {
+    /*background: #fff url(images/valid.png) no-repeat 98% center;*/
+    /*box-shadow: 0 0 5px #5cd053;*/
+    /*border-color: #28921f;*/
+}
+.contact_form input:focus:invalid, .contact_form textarea:focus:invalid {
+    /*background: #fff url(images/invalid.png) no-repeat 98% center;*/
+    /*box-shadow: 0 0 5px #d45252;*/
+    /*border-color: #b03535*/
+}
+
+/* === Form hints === */
+.form_hint {
+    /*background: #d45252;*/
+    /*border-radius: 3px 3px 3px 3px;*/
+    color: white;
+    margin-left:8px;
+    padding: 1px 6px;
+    z-index: 999; /* hints stay above all other elements */
+    position: absolute; /* allows proper formatting if hint is two lines */
+    display: none;
+}
+.form_hint::before {
+    content: "\25C0";
+    color:#d45252;
+    position: absolute;
+    top:1px;
+    left:-6px;
+}
+.contact_form input:focus + .form_hint {display: inline;}
+/*.contact_form input:required:valid + .form_hint {background: #28921f;}*/
+.contact_form input:required:valid + .form_hint::before {color:#28921f;}
+
+/* feedback section [write to us | map] */
+section.main-feedback {
+    background: #ccc;
+}
+
+section.main-feedback h2 {
+    text-align: left;
+}
+
+section.main-feedback .container {
+    overflow:hidden;
+    /*width:100%;*/
+    display: flex;
+    /*margin: 5% 0 0 5%;*/
+}
+
+.box {
+    white-space:nowrap;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.writetous {
+    float: left;
+    flex-basis: 60%;
+    /*width: 620px;*/
+    display:inline-block;
+    /*border:1px solid black*/
+}
+.map {
+
+    /*width: 500px;*/
+    flex-basis: 40%;
+    display:inline-block;
+    /*border:1px solid black*/
+}
+textarea {
+    resize: none;
+}

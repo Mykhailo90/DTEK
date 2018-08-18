@@ -1,0 +1,15 @@
+Author: Marco Biedermann
+Twitter: @m412c0b
+dribbble: http://dribbble.com/m412c0
+Codepen: http://codepen.io/m412c0
+Behance: http://www.behance.net/m412c0
+
+Licence: Attribution-ShareAlike 3.0 Unported
+http://creativecommons.org/licenses/by-sa/3.0/deed.en_US
+
+You are allowed to:
+- use it for personal and commercial usage
+- modify the work
+
+You have to:
+- mention me and link to one or more of my profiles

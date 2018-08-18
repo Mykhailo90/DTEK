@@ -1,0 +1,146 @@
+/*!* xs (<=543px) *!*/
+@media (max-width: 575px) {
+    .card{
+        width: 100%;
+    }
+    .gallery {
+        width: 250px;
+    }
+    .reigistr_menu {
+        display: none;
+    }
+    nav {
+        display: none;
+    }
+    .partners-container {
+        /*display: grid;*/
+        grid-template-columns: repeat(2, auto);
+    }
+}
+
+/*!* sm (>=576 и <=767) *!*/
+@media (min-width: 576px) and (max-width: 767px) {
+    .card{
+        width: 100%;
+    }
+    .gallery {
+        width: 250px;
+    }
+    nav {
+        display: none;
+    }
+
+}
+
+/* md (>=768 и <=991) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .event-card-img {
+        display: none;
+    }
+    .event-card-info {
+        flex-basis: 85%;
+    }
+    .card {
+        width: calc(100% * (1/2) - 10px - 1px);
+    }
+    .header-container a {
+        font-size: 1em;
+    }
+    .gallery {
+        width: 600px;
+    }
+
+    nav {
+        display: none;
+    }
+}
+
+/*!* lg (>=992 и <=1199) *!*/
+@media (min-width: 992px) and (max-width: 1199px) {
+    .events-cards-container {
+        width: auto;
+    }
+    .card{
+        width: calc(100% * (1/2) - 10px - 1px);
+    }
+    .gallery {
+        width: 600px;
+    }
+    nav {
+        display: none;
+    }
+}
+
+/*!* xl (>=1200) *!*/
+@media (min-width: 1200px) {
+    /*.card {*/
+        /*width: 250px;*/
+    /*}*/
+}
+
+@media screen and (max-width: 1200px) {
+    .header-container{
+        width: 100%;
+        display: flex;
+        justify-content: start;
+    }
+    /*.main-menu{*/
+        /*display: none;*/
+    /*}*/
+    .main-menu li{
+        width: 100%;
+        display: block;
+        font-size: 12px;
+    }
+    .main-menu a{
+        display: block;
+        padding: 8px;
+    }
+    .toggle-button{
+        text-align: center;
+        display: block;
+        cursor: pointer;
+        color: #000;
+    }
+    .toggle-button:after{
+        content: attr(data-open);
+        display: block;
+    }
+    #menu-checkbox:checked + nav[role="navigation"] .main-menu {
+        display: block;
+    }
+    #menu-checkbox:checked + nav[role="navigation"] .toggle-button:after {
+        content: attr(data-close);
+    }
+    /*.header-container a{*/
+        /*margin-right: -65px;*/
+    /*}*/
+    .main-menu {
+        position: relative;
+        top: 30px;
+        right: 115px;
+    }
+    .logo {
+        flex-basis: 80%;
+    }
+    .header-container {
+        align-items: flex-start;
+    }
+    nav {
+        display: none!important;
+    }
+    .wrapper {
+        /*flex-basis: 10%;*/
+        margin-right: 25px;
+    }
+}
+@media screen and (min-width: 1201px) {
+    .wrapper {
+        display: none;
+    }
+}
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+    .header-container {
+        align-items: center;
+    }
+}
