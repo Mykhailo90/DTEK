@@ -1,5 +1,11 @@
 <?php
+/*
+* Создаем константу корневой директории.
+*
+* Create a constant for the root directory.
+*/
 
+define('ROOT', dirname(__FILE__));
 /*
 * Подключаем файл базовой инициализации приложения.
 *
@@ -10,13 +16,7 @@ require 'aplication/lib/Dev.php';
 
 use aplication\core\Router;
 
-/*
-* Создаем константу корневой директории.
-*
-* Create a constant for the root directory.
-*/
 
-define('ROOT', dirname(__FILE__));
 session_start();
 
 /*

@@ -9,10 +9,12 @@ abstract class Controller {
   public $model;
   public $view;
   public $route;
-  function __construct($route){
-    $this->route = $route;
-    $this->view = new View($route);
-    $this->model = $this->loadModel($this->route['controller']);
+  public $params;
+
+  function __construct($params){
+    $this->params = $params;
+    $this->view = new View($params);
+    $this->model = $this->loadModel($params['controller_name']);
   }
 
   public function loadModel($name){

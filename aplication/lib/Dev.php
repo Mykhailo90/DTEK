@@ -4,6 +4,7 @@
 *
 * Set ON settings for display all errors
 */
+use aplication\lib\DB;
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -34,7 +35,7 @@ function debug($var, $type = 'p'){
       var_dump($var);
     }
     else if ($type == 'p'){
-      printf($var);
+      print_r($var);
     }
   echo '</pre>';
   exit();
@@ -64,5 +65,9 @@ spl_autoload_register(function($class) {
     require $path;
   }
 });
+
+  // Сохраняем указатель доступа к базе данных в Registry
+  // Save the DB pointer connect in Regystry object
+  DB::get_DB_in_Registry();
 
  ?>

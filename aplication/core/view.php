@@ -4,25 +4,25 @@ namespace aplication\core;
 
 class View
 {
-  public $path;
-  public $route;
+  public $params;
   public $layout = 'default';
 //public $template_view; // здесь можно указать общий вид по умолчанию.
-  function __construct($route){
-    $this->route = $route;
-    $this->path = $route['controller'].'/'.$route['action'];
-    // debug($this->path);
+  function __construct($params){
+    $this->params = $params;
+    // debug($params['controller_name']);
   }
 
   public function render($title, $vars = []){
     extract($vars);
-    if (file_exists(ROOT.'/views/'.$this->path.'.php')){
+    $name = $this->params['controller_name'];
+    $path = ROOT.'/aplication/views/'.$name. '/'.$name.'.php';
+    if (file_exists($path)){
       ob_start();
-      require 'views/'.$this->path.'.php';
+      require $path;
       $content = ob_get_clean();
-      require 'views/layout/'.$this->layout.'.php';
+      require ROOT.'/aplication/views/layout/'.$this->layout.'.php';
     }else {
-      echo "Страница вида не найдена".$this->path.'.php';
+      echo "Страница вида не найдена".$path.'.php';
     }
   }
 
@@ -30,7 +30,7 @@ class View
     header('location: '.$url);
     exit();
   }
-  
+
   public static function errorCode($code){
     http_response_code($code);
     require ROOT.'/views/errors/'.$code.'.php';

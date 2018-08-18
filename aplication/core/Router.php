@@ -10,40 +10,88 @@ use aplication\lib\ParentPath;
 */
 
 class Router {
+
+  // Переменная для хранения массива доступных маршрутов
+  // Variable for storing an array of available routes
     protected $routes = [];
-    //protected $params = [];
+
+  // Переменная для хранения массива с маршрутом, именем контроллера, метода, параметра
+  // Variable for storing an array with a path, controller_name, method_name and parameters
+    protected $params = [];
+
+  // Получаем из базы данных возможные маршруты
+  // We get from the database possible routes
     function __construct()
     {
-      // Написать класс для загрузки конфигурационных файлов
-      // А также класс для определения параметров(экшена)
-
-      //Запрос к БД для получения всех возможных маршрутов
       $tmp = new ParentPath();
       $this->routes = $tmp->arr;
     }
 
-    public function add($route, $params){
-      $route = '#^'.$route.'$#';
-      $this->routes[$route] = $params;
-    }
-    public function match(){
+    private function match(){
       $url = trim($_SERVER['REQUEST_URI'], '/');
-      foreach ($this->routes as $route => $params) {
-        if (preg_match($route, $url, $matches)){
-          $this->params = $params;
-          return true;
-        }
+      $url = '#^'.$url.'$#';
+      foreach ($this->routes as $value) {
+      if (preg_match($url, $value, $matches)){
+        $this->parsing_path($matches[0]);
+        // $this->params = $matches;
+        return true;
       }
-      return false;
     }
+    return false;
+  }
+
+  /*
+  * Функция принимает путь и выделяет имя контроллера, метода и параметры
+  *
+  * The function takes a path and selects the controller name, method, and parameters
+  */
+  private function parsing_path($path){
+    $route = $path;
+
+    //Дефолтное значение для имени контроллера
+    //The default value for the controller name
+    $controller_name_def = 'main';
+
+    //Дефолтное значение для имени метода
+    //The default value for the method name
+    $action_def = 'list';
+
+    // Разбиваем путь на массив по разделителю
+    // Split the path to the array by separator
+    $parameters = explode("/", $route);
+
+    // Поочередно выделяем имя контроллера, имя метода
+    // Select the controller name, the name of the method
+    $controller_name = array_shift($parameters);
+
+    // Если путь не содержит имя контроллера или метода
+    // задаем дефолтное значение.
+
+    //If the path does not contain the name of the controller or method
+    // set the default value.
+    $controller_name = (empty($controller_name)) ? $controller_name_def
+                                                  : $controller_name;
+    $action = array_shift($parameters);
+    $action = (empty($action)) ? $action_def
+                                : $action;
+
+    // Сохраняем значения в переменную класса в виде массива
+    // Save the values ​​to the class variable as an array
+    $this->params['route'] = $route;
+    $this->params['controller_name'] = $controller_name;
+    $this->params['action'] = $action;
+    $this->params['parameters'] = $parameters;
+  }
+
     public function run(){
       if($this->match()){
-        // $path = ROOT.'/'.'controllers/'.ucfirst($this->params['controller']).'Controller.php';
-        $path = 'controllers\\'.ucfirst($this->params['controller']).'Controller';
-        if (class_exists($path)){
+        $path = ROOT.'/aplication/controllers/'.ucfirst($this->params['controller_name']).'Controller.php';
+        if (file_exists($path)){
           $action = $this->params['action'].'Action';
-          if (method_exists($path, $action)){
-            $controller = new $path($this->params);
+          $class_name = 'aplication\controllers\\' . ucfirst($this->params['controller_name']).'Controller';
+          if (method_exists($class_name, $action)){
+
+            $controller = new $class_name($this->params);
             $controller->$action();
           }
           else {
