@@ -1,0 +1,23 @@
+1. В таблице mod_programs в поле path_to_program id_84
+   исправить на module_programs поля page_name и path_to_program
+   а также зависимые значения.
+
+2. В таблице mod_programs добавить поле check_on с дефолтным значением 1
+   для управления отображением сущностей объектов на странице.
+
+3. Cоздать таблицу banner_table с полями id_banner, img_path, title, short_info,
+   button_content, id_page, route_path, check_on.
+   Для управления банерами для всех страниц сайта.
+
+4. Cоздать таблицу directions с полями id_direction, title, short_info,
+   img_path, route_path, check_on.
+   id_direction связать таблицы directions связать ключом с mod_programs полем id
+   Для управления направлениями (отображения категорий, их сортировки).
+
+5. Добавить строки в таблицу mod_programs под id 185-188 со страницами для
+   отображения направлений. (Уточнить наименования направлений).
+
+6. Добавить поле direction в mod_programs для распределения действующих программ по категориям,
+   дефолтное значение NULL.
+
+7.

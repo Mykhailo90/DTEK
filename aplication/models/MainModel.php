@@ -1,10 +1,17 @@
 <?php
-class Programs_catalogModel extends Model
+
+namespace aplication\models;
+
+use aplication\core\Model;
+use aplication\lib\Registry;
+use PDO;
+
+class MainModel extends Model
 {
 
-    public function getMainData()
+    public function get_data()
     {
-        $link = parent::getDBconection();
+        $link = Registry::getInstance()->getProperty('DB');
         $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
@@ -18,7 +25,7 @@ class Programs_catalogModel extends Model
         }
         unset($result, $query);
 
-        $query = "SELECT * FROM `baner_table` WHERE id_page ='9' AND check_on = '1';";
+        $query = "SELECT * FROM `banner_table` WHERE id_page ='9' AND check_on = '1';";
         $baners = array();
         if ($result = $link->query($query)) {
             $baners = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -30,7 +37,7 @@ class Programs_catalogModel extends Model
  * к полям таблицы mod_programs (аналог feedback запроса)
  *
  * */
-        $query = "SELECT * FROM mod_programs WHERE category = 'direction';";
+        $query = "SELECT * FROM directions;";
 
         $direction = array();
         if ($result = $link->query($query)) {

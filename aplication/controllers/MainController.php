@@ -8,15 +8,15 @@ use aplication\core\View;
 class MainController extends Controller{
 
   function __construct($parameters){
+		parent::__construct($parameters);
+
 		$this->params = $parameters;
-    // require_once ROOT . '/models/model_main.php';
-		// $this->model = new Model_main();
 		$this->view = new View($parameters);
 	 }
 
     function listAction(){
 			$title = 'DTEK Academy';
-      // $res = $this->model->get_data();
+      $data = $this->model->get_data();
 
       // $db = new Db;
       // $form = '1; Delete FROM test';
@@ -26,14 +26,12 @@ class MainController extends Controller{
       //
       // $prop = $this->model->get_data();
       //
-      $vars = [];
+
 
       // debug($vars);
 
-      // $vars = [
-      //   'res' => $res,
-      // ];
-      $this->view->render($title, $vars);
+    
+      $this->view->render($title, $data);
     }
   }
 ?>
