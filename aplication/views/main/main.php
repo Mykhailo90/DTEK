@@ -167,10 +167,6 @@
 			</nav>
 		</div>
 
-
-
-
-
 	</header>
 	<div class="slideshow-container darken">
         <?php foreach($baners as $item) {?>
@@ -191,7 +187,7 @@
 	<div id="slider-controllers">
 
 	</div>
-	<script src="./views/dtek_academy_newsite/common.blocks/main_slider.js"></script>
+	<script src="../../../public/common.blocks/main_slider.js"></script>
 	<div class="butt">
 		<button class="calltoaction-button">CALL-TO-ACTION</button>
 	</div>
@@ -325,7 +321,7 @@
         <h2>Блог Академии</h2>
         <div class="blog-container">
             <?php
-                include_once('../../../public/common.blocks/parser.php');
+                include_once(ROOT.'/public/common.blocks/parser.php');
             ?>
         </div>
         <div class="butt">
@@ -386,16 +382,16 @@
         <h2>У нас обучаются сотрудники</h2>
         <div class="partners-container">
 <!--            --><?php //echo file_get_contents(ROOT . "/views/dtek_academy_newsite/img/visa_logo.svg"); ?>
-			<?php echo file_get_contents("../../../public/img/visa_logo.svg"); ?>
-            <?php echo file_get_contents("../../../public/img/kievstar_logo.svg"); ?>
-            <?php echo file_get_contents("../../../public/img/kievstar_logo.svg"); ?>
-            <?php echo file_get_contents("../../../public/img/kievstar_logo.svg"); ?>
-            <?php echo file_get_contents("../../../public/img/arterium_logo.svg"); ?>
-            <?php echo file_get_contents("../../../public/img/konti_logo.svg"); ?>
-            <?php echo file_get_contents("../../../public/img/nissan_logo.svg"); ?>
-            <?php echo file_get_contents("../../../public/img/jti_logo.svg"); ?>
-            <?php echo file_get_contents("../../../public/img/pumb_logo.svg"); ?>
-            <?php echo file_get_contents("../../../public/img/comfy_logo.svg"); ?>
+			<?php echo file_get_contents(ROOT."/public/img/visa_logo.svg"); ?>
+            <?php echo file_get_contents(ROOT."/public/img/kievstar_logo.svg"); ?>
+            <?php echo file_get_contents(ROOT."/public/img/kievstar_logo.svg"); ?>
+            <?php echo file_get_contents(ROOT."/public/img/kievstar_logo.svg"); ?>
+            <?php echo file_get_contents(ROOT."/public/img/arterium_logo.svg"); ?>
+            <?php echo file_get_contents(ROOT."/public/img/konti_logo.svg"); ?>
+            <?php echo file_get_contents(ROOT."/public/img/nissan_logo.svg"); ?>
+            <?php echo file_get_contents(ROOT."/public/img/jti_logo.svg"); ?>
+            <?php echo file_get_contents(ROOT."/public/img/pumb_logo.svg"); ?>
+            <?php echo file_get_contents(ROOT."/public/img/comfy_logo.svg"); ?>
         </div>
     </section>
 

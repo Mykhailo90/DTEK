@@ -31,6 +31,7 @@ class MainModel extends Model
             $baners = $result->fetchAll(PDO::FETCH_ASSOC);
         }
         unset($result, $query);
+        // debug($baners);
 /*
  *
  * нужно переделать запрос с джоином адрес фото из таблицы img

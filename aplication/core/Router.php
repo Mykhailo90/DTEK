@@ -20,20 +20,33 @@ class Router {
     protected $params = [];
 
   // Получаем из базы данных возможные маршруты
-  // We get from the database possible routes
+  // We get possible routes from the database
     function __construct()
     {
       $tmp = new ParentPath();
       $this->routes = $tmp->arr;
     }
 
+    /*
+    * Функция проверяет вхождение введенного URL в массив дозволенных адресов
+    * возвращает булевое значение true или false
+    * The function checks the entered URL in an array of allowed addresses
+    * return boolean value true or false
+    */
     private function match(){
       $url = trim($_SERVER['REQUEST_URI'], '/');
+    // Обозначаем URL как регулярное выражение
+    // Denote URL as regular expression
       $url = '#^'.$url.'$#';
+
       foreach ($this->routes as $value) {
+    // Если найдено вхождение вызывается функция для определения параметров
+    // имя контроллера, имя метода и параметры
+
+    //If an occurrence is found, we called  a function to determine the parameters:
+    // controller name, method name and other parameters
       if (preg_match($url, $value, $matches)){
         $this->parsing_path($matches[0]);
-        // $this->params = $matches;
         return true;
       }
     }
@@ -84,17 +97,31 @@ class Router {
   }
 
     public function run(){
+
+  // Проверяем вхождение введенного URL в массив дозволенных адресов
+  // Сhecks the entered URL in an array of allowed addresses
       if($this->match()){
+  // Определяем путь к контроллеру
+  // Determine the path to the controller
         $path = ROOT.'/aplication/controllers/'.ucfirst($this->params['controller_name']).'Controller.php';
         if (file_exists($path)){
+  // Если путь найден - определяем имя метода
+  // If the path is found, define the method name
           $action = $this->params['action'].'Action';
           $class_name = 'aplication\controllers\\' . ucfirst($this->params['controller_name']).'Controller';
+  // Проверяем наличие необоходимого метода в классе
+  // Сheck the necessary method in the class
           if (method_exists($class_name, $action)){
-
+  // Если метод найден создаем экземпляр класса контроллера
+  // Вызываем необходимый метод
+  // If the method is found, create an object of the controller class
+  // Call the required method
             $controller = new $class_name($this->params);
             $controller->$action();
           }
           else {
+// Если не найден класс, метод или файл - вызываем отображение ошибки
+// If no class, method, or file is not found - call the error display
             View::errorCode(404);
           }
         }else {
