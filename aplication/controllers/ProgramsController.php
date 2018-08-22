@@ -11,7 +11,7 @@ use aplication\core\View;
 * The class provides the interaction between the model and the display of the main page
 */
 
-class MainController extends Controller{
+class ProgramsController extends Controller{
   function __construct($parameters){
 // Передаем в родительский класс параметры для инициализации модели
 // Pass to the parent class the parameters for initializing the model
@@ -23,7 +23,25 @@ class MainController extends Controller{
 // Method for getting the data required to display the main page
     function listAction(){
 			$title = 'DTEK Academy';
-      $data = $this->model->get_data();
+      $data = $this->model->get_data($this->params['action']);
+      $this->view->render($title, $data);
+    }
+
+    function treningsAction(){
+			$title = 'DTEK Academy';
+      $data = $this->model->get_data($this->params['action']);
+      $this->view->render($title, $data);
+    }
+
+    function team_buildingsAction(){
+			$title = 'DTEK Academy';
+      $data = $this->model->get_data($this->params['action']);
+      $this->view->render($title, $data);
+    }
+
+    function module_programsAction(){
+      $title = 'DTEK Academy';
+      $data = $this->model->get_data($this->params['action']);
       $this->view->render($title, $data);
     }
   }

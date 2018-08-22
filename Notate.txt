@@ -20,4 +20,72 @@
 6. Добавить поле direction в mod_programs для распределения действующих программ по категориям,
    дефолтное значение NULL.
 
-7.
+7. Добавить хранимую процедуру для получения данных в навигационное меню. Имя хранимой процедуры "navMenu"
+
+    DELIMITER //
+
+    CREATE PROCEDURE `navMenu` ()
+
+    BEGIN
+        SELECT * FROM mod_programs WHERE parent_page = '9' AND check_on = '1';
+    END//
+
+8. Добавить хранимую процедуру для получения данных для отображения баннеров. Имя хранимой процедуры "banners"
+
+    DELIMITER //
+
+    CREATE PROCEDURE `banners` ()
+
+    BEGIN
+	    SELECT * FROM `banner_table` WHERE id_page ='9' AND check_on = '1';
+    END//
+
+9. Добавить хранимую процедуру для получения данных для раздела "Направления". Имя хранимой процедуры "directions"
+
+    DELIMITER //
+
+    BEGIN
+	    SELECT * FROM directions;
+    END//
+
+
+10. Добавить хранимую процедуру для получения данных для Календаря событий. Имя хранимой процедуры "calendar"
+
+    DELIMITER //
+
+    CREATE PROCEDURE `calendar` ()
+
+    BEGIN
+	    SELECT title, start_date, place, short_info FROM `events`;
+    END//
+
+11. Добавить хранимую процедуру для получения данных для раздела "Отзывы". Имя хранимой процедуры "feedback"
+
+    DELIMITER //
+
+    CREATE PROCEDURE feedback ()
+
+    BEGIN
+	    SELECT UF.id, UF.msg, UF.img_path, UA.user_name, UA.user_surname,
+            UA.user_company FROM users_feedback UF JOIN users_all UA WHERE UF.user_id=UA.id AND UF.check_on = '1';
+    END//
+
+12. Добавить хранимую процедуру для получения данных для раздела "Популярные програмы". Имя хранимой процедуры "popular_programs"
+
+    DELIMITER //
+
+    CREATE PROCEDURE `popular_programs` ()
+
+    BEGIN
+	    SELECT * FROM `mod_programs` WHERE check_on=1 AND (parent_page='85' OR parent_page='84' OR parent_page='81');
+    END//
+
+13. Добавить хранимую процедуру для получения списокf возможных адресов. Имя хранимой процедуры "path_to_program"
+
+    DELIMITER //
+
+    CREATE PROCEDURE path_to_program ()
+
+    BEGIN
+	    SELECT path_to_program FROM mod_programs;
+    END//

@@ -28,7 +28,7 @@ Class ParentPath {
     
 // Делаем запрос к базе данных и возвращаем результат
 // Make the query to the database and return the result
-    $prepare = $db->prepare('SELECT path_to_program FROM mod_programs');
+    $prepare = $db->prepare('CALL path_to_program ()');
     $prepare->execute();
     return $prepare->fetchAll(PDO::FETCH_COLUMN);
   }

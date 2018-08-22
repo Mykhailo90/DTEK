@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Aug 18, 2018 at 06:23 PM
+-- Host: localhost:3307
+-- Generation Time: Aug 19, 2018 at 06:26 AM
 -- Server version: 5.7.22
--- PHP Version: 7.1.19
+-- PHP Version: 7.1.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,41 @@ SET time_zone = "+00:00";
 --
 -- Database: `dtek`
 --
+
+DELIMITER $$
+--
+-- Procedures
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `banners` ()  BEGIN
+	SELECT * FROM `banner_table` WHERE id_page ='9' AND check_on = '1';
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `calendar` ()  BEGIN
+	SELECT title, start_date, place, short_info FROM `events`;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `directions` ()  BEGIN
+	SELECT * FROM directions;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `feedback` ()  BEGIN
+	SELECT UF.id, UF.msg, UF.img_path, UA.user_name, UA.user_surname,
+        UA.user_company FROM users_feedback UF JOIN users_all UA WHERE UF.user_id=UA.id AND UF.check_on = '1';
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `navMenu` ()  BEGIN 
+    SELECT * FROM mod_programs WHERE parent_page = '9' AND check_on = '1';
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `path_to_program` ()  BEGIN
+	SELECT path_to_program FROM mod_programs;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `popular_programs` ()  BEGIN
+	SELECT * FROM `mod_programs` WHERE check_on=1 AND (parent_page='85' OR parent_page='84' OR parent_page='81');
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -44,8 +79,8 @@ CREATE TABLE `banner_table` (
 --
 
 INSERT INTO `banner_table` (`id_banner`, `img_path`, `title`, `short_info`, `button_content`, `id_page`, `route_path`, `check_on`) VALUES
-(1, '/Users/msarapii/Desktop/web/public/img/corporate.jpg', 'Test banner1', 'Very good! Very good! Very good! Very good! Very good! Very good! Very good! Very good! Very good! Very good! Very good! Very good! Very good! Very good! Very good! ', 'Ok!!!', 9, 'https://dtekacademy.com', 1),
-(2, '/Users/msarapii/Desktop/web/public/img/corporate.jpg', 'Test banner2', 'asdfasdfkjasdlkfj;alsdkjf;alskdjf;laskdjf;alskdfj', 'Delete', 9, 'https://dtekacademy.com', 1);
+(1, '../../public/img/corporate.jpg', 'Test banner1', 'Very good! Very good! Very good! Very good! Very good! Very good! Very good! Very good! Very good! Very good! Very good! Very good! Very good! Very good! Very good! ', 'Ok!!!', 9, 'https://dtekacademy.com', 1),
+(2, '../../public/img/bg1.jpg', 'Test banner2', 'asdfasdfkjasdlkfj;alsdkjf;alskdjf;laskdjf;alskdfj', 'Delete', 9, 'https://dtekacademy.com', 1);
 
 -- --------------------------------------------------------
 
