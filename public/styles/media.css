@@ -16,6 +16,16 @@
         /*display: grid;*/
         grid-template-columns: repeat(2, auto);
     }
+    .filtr{
+      width: 100%;
+      /* background-color: #f7d445; */
+
+    }
+
+    .prog_list{
+      /* background-color: blue; */
+      width: 100%;
+    }
 }
 
 /*!* sm (>=576 и <=767) *!*/

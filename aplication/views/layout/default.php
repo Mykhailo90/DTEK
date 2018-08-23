@@ -53,11 +53,14 @@
 
     <script type="text/javascript">
         // pass PHP variable declared above to JavaScript variable
-        var g_calendar_json = <?php echo json_encode($calendar) ?>;
+        // var g_calendar_json = <?//php echo json_encode($calendar) ?>;
     </script>
 
   <!-- jsCalendar -->
   <script type="text/javascript" src="../../../public/common.blocks/jsCalendar.js"></script>
+  <script type="text/javascript" src="../../../public/js/programs/programs.js">
+
+  </script>
 
 
   <!--[if IE]>
@@ -77,6 +80,7 @@
     })();
   </script>
 
+  <link rel="stylesheet" href="../../../public/styles/programs/programs.css">
   <link rel="stylesheet" href="../../../public/styles/newstyle.css">
   <link rel="stylesheet" href="../../../public/styles/media.css">
   <link rel="stylesheet" href="../../../public/styles/layout.css">

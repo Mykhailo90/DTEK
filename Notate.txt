@@ -89,3 +89,34 @@
     BEGIN
 	    SELECT path_to_program FROM mod_programs;
     END//
+
+14. Добавить хранимую процедуру для получения списка всех программ. Имя хранимой процедуры "programs"
+
+        DELIMITER //
+
+        CREATE PROCEDURE programs ()
+
+        BEGIN
+        IF arg = 'list' THEN
+        SELECT * FROM mod_programs WHERE parent_page IN(84, 85, 86, 87 , 88);
+        ELSEIF arg = 'module_programs' THEN SELECT * FROM mod_programs WHERE parent_page = 84;
+        ELSEIF arg = 'trenings' THEN SELECT * FROM mod_programs WHERE parent_page = 85;
+        ELSEIF arg = 'team_buildings' THEN SELECT * FROM mod_programs WHERE parent_page = 86;
+        ELSEIF arg = 'unforma_methods' THEN SELECT * FROM mod_programs WHERE parent_page = 87;
+        ELSEIF arg = 'energy_management' THEN SELECT * FROM mod_programs WHERE parent_page = 88;
+        END IF;
+
+        END
+
+15. Создать таблицу type_event с полями: id_type, type_name. Для хранения типов классификации мероприятий.
+16. Создать таблицу types с полями из внешних ключей id_type, id_event. Первое поле ссылается на id_type
+    таблицы type_event, второе на поле id таблицы mod_programs. Обязательно внести недостающие событие в
+    таблицу мod_programs.
+
+17. Создать таблицу subject_type с полями: id_subject, subject_name. Для хранения типов классификации мероприятий.
+18. Создать таблицу subjects с полями из внешних ключей id_subject, id_event. Первое поле ссылается на id_subject
+    таблицы subject_types, второе на поле id таблицы mod_programs. Обязательно внести недостающие событие в
+    таблицу мod_programs и subjects для выборки.
+
+19 Создать таблицу trener_event с полями id_trener, id_event согласовать с таблицами treners и mod_programs.
+    Заполнить таблицу значениями для тестирования вывода

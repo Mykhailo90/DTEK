@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3307
--- Generation Time: Aug 19, 2018 at 06:26 AM
+-- Host: localhost:3306
+-- Generation Time: Aug 23, 2018 at 08:55 PM
 -- Server version: 5.7.22
--- PHP Version: 7.1.18
+-- PHP Version: 7.1.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -53,6 +53,18 @@ END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `popular_programs` ()  BEGIN
 	SELECT * FROM `mod_programs` WHERE check_on=1 AND (parent_page='85' OR parent_page='84' OR parent_page='81');
+END$$
+
+CREATE DEFINER=`msarapii`@`localhost` PROCEDURE `programs` (IN `arg` VARCHAR(64))  BEGIN
+ IF arg = 'list' THEN
+     SELECT * FROM mod_programs WHERE parent_page IN(84, 85, 86, 87 , 88);
+    ELSEIF arg = 'module_programs' THEN SELECT * FROM mod_programs WHERE parent_page = 84;
+    ELSEIF arg = 'trenings' THEN SELECT * FROM mod_programs WHERE parent_page = 85;
+    ELSEIF arg = 'team_buildings' THEN SELECT * FROM mod_programs WHERE parent_page = 86;
+    ELSEIF arg = 'unforma_methods' THEN SELECT * FROM mod_programs WHERE parent_page = 87;
+    ELSEIF arg = 'energy_management' THEN SELECT * FROM mod_programs WHERE parent_page = 88;
+    END IF;
+    
 END$$
 
 DELIMITER ;
@@ -604,10 +616,10 @@ CREATE TABLE `directions` (
 --
 
 INSERT INTO `directions` (`id_direction`, `title`, `short_info`, `img_path`, `route_path`, `check_on`, `id`) VALUES
-(185, 'Для студентов', 'Много полезной информации', '/Users/msarapii/Desktop/web/public/img/corporate.jpg', 'Пока в никуда', 1, 1),
-(186, 'Для стажеров', 'Много полезной информации', '/Users/msarapii/Desktop/web/public/img/corporate.jpg', 'Пока в никуда', 1, 2),
-(187, 'Для директоров', 'Очень важная информация', '/Users/msarapii/Desktop/web/public/img/corporate.jpg', 'В никуда', 1, 3),
-(188, 'Для менеджеров', 'Очень важная информация', '/Users/msarapii/Desktop/web/public/img/corporate.jpg', 'В никуда', 1, 4);
+(185, 'HR', 'Много полезной информации', '/Users/msarapii/Desktop/web/public/img/corporate.jpg', 'Пока в никуда', 1, 1),
+(186, 'Руководители/Владельцы бизнеса', 'Много полезной информации', '/Users/msarapii/Desktop/web/public/img/corporate.jpg', 'Пока в никуда', 1, 2),
+(187, 'Маркетолог', 'Очень важная информация', '/Users/msarapii/Desktop/web/public/img/corporate.jpg', 'В никуда', 1, 3),
+(188, 'Тренер', 'Очень важная информация', '/Users/msarapii/Desktop/web/public/img/corporate.jpg', 'В никуда', 1, 4);
 
 -- --------------------------------------------------------
 
@@ -1292,9 +1304,9 @@ INSERT INTO `mod_programs` (`id`, `page_name`, `parent_page`, `page_img`, `page_
 (145, 'training_energy management', 88, 3, 2, 'Тренинг \'Основы энергоменеджмента и энергоаудита зданий и сооружений\'', ' Основы культуры энергопотребления с акцентом на эффективное, рациональное потребление энергии на производстве', 'final_page', 'NULL', 'block_with_img', '', 'programs/energy_management/training_energy management', 1, NULL),
 (146, 'basics_energy audit', 88, 3, 2, 'Тренинг \'Основы энергоаудита жилых зданий\' - Для ОСББ', 'практические занятия для председателей и членов ОСМД и ЖСК, управляющих компаний, заинтересованных в повышении энергоэффективности жилых домах', 'final_page', 'NULL', 'block_with_img', '', 'programs/energy_management/basics_energy audit', 1, NULL),
 (149, 'events', 9, 3, 2, 'Мероприятия', '', 'page_with_own_db', 'NULL', 'block_with_svg', '', 'events', 1, NULL),
-(150, 'blog', 9, 3, 2, 'Блог', '', 'page_with_own_db', 'NULL', 'block_with_svg', '', 'blog', 1, NULL),
+(150, 'blog', 9, 3, 2, 'Блог', '', 'page_with_own_db', 'NULL', 'block_with_svg', '', 'blog', 0, NULL),
 (151, 'academy', 9, 3, 2, 'Академия', '', 'final_page', 'NULL', 'block_with_svg', '', 'academy', 1, NULL),
-(153, 'contacts', 9, 3, 2, 'Контакты', '', 'final_page', 'NULL', 'block_with_svg', '', 'contacts', 1, NULL),
+(153, 'contacts', 9, 3, 2, 'Контакты', '', 'final_page', 'NULL', 'block_with_svg', '', 'contacts', 0, NULL),
 (156, 'developing_of_education_programs', 85, 3, 2, 'Тренинг по разработке обучающих программ', '', 'final_page', 'NULL', 'display_none', '', 'programs/trenings/developing_of_education_programs', 0, NULL),
 (157, 'goup_dynamics', 85, 3, 2, 'Тренинг по управлению групповой динамикой', '', 'final_page', 'NULL', 'display_none', '', 'programs/trenings/goup_dynamics', 0, NULL),
 (158, 'motivation_of_staff', 85, 3, 2, 'Тренинг по мотивации подчиненных', '', 'final_page', 'NULL', 'display_none', '', 'programs/trenings/motivation_of_staff', 0, NULL),
@@ -1322,10 +1334,10 @@ INSERT INTO `mod_programs` (`id`, `page_name`, `parent_page`, `page_img`, `page_
 (182, 'upravlenie_proektami', 85, 1845, 2, 'Управление проектами', 'Программа для тех, кто использует или планирует использовать проектный менеджмент в работе. Программа подойдет для сотрудников любого уровня: от линейного менеджмента до владельца компании.', 'final_page', 'NULL', 'block_with_img', '', 'programs/trenings/upravlenie_proektami', 0, NULL),
 (183, 'marafon_talantov', 85, 1863, 2, 'Марафон талантов', 'Марафон талантов – серия вечерних мастер-классов для прокачки ваших скилов! \n', 'final_page', 'NULL', 'block_with_img', '', 'programs/trenings/marafon_talantov', 0, NULL),
 (184, 'new', 84, 1881, 2, 'H2H. Управление, ориентированное на людей', 'Курс состоит из 20+ уроков, практических заданий и интересных кейсов от 10 экспертов по менеджменту и управлению персоналом.', 'final_page', 'NULL', 'block_with_img', '', 'programs/module_progams/new', 0, NULL),
-(185, 'for_students', 9, 3, 16, 'Для студентов', 'Много полезной информации', 'block', 'NULL', 'block', 'block_with_img', 'programs/for_students', 1, NULL),
-(186, 'for_trainee', 9, 3, 72, 'Для стажеров', 'Очень много полезной ифнормации', 'block', 'NULL', 'block', 'block_with_img', 'programs/for_trainee', 1, NULL),
-(187, 'for_cheaf', 9, 3, 16, 'Для руководителей', 'Самая полезная информация', 'block', 'NULL', 'block', 'block_with_img', 'programs/for_cheaf', 1, NULL),
-(188, 'for_manager', 9, 3, 16, 'Для менеджеров', 'Полезная информация для всех', 'block', 'NULL', 'block', 'block_with_img', 'programs/for_manager', 1, NULL);
+(185, 'for_students', 9, 3, 16, 'Для студентов', 'Много полезной информации', 'block', 'NULL', 'block', 'block_with_img', 'programs/for_students', 0, NULL),
+(186, 'for_trainee', 9, 3, 72, 'Для стажеров', 'Очень много полезной ифнормации', 'block', 'NULL', 'block', 'block_with_img', 'programs/for_trainee', 0, NULL),
+(187, 'for_cheaf', 9, 3, 16, 'Для руководителей', 'Самая полезная информация', 'block', 'NULL', 'block', 'block_with_img', 'programs/for_cheaf', 0, NULL),
+(188, 'for_manager', 9, 3, 16, 'Для менеджеров', 'Полезная информация для всех', 'block', 'NULL', 'block', 'block_with_img', 'programs/for_manager', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -1376,6 +1388,50 @@ INSERT INTO `parameters` (`id`, `price`, `price_condition`, `start_date`, `finis
 (111, 25000, ' (6 модулей)', '2018-10-06 00:00:00', '0000-00-00 00:00:00', 'Академия ДТЭК', '6 модулей по 4 часа каждый', 94, ''),
 (112, 6500, '', '2018-09-14 00:00:00', '2018-09-15 00:00:00', 'Академия ДТЭК', '2 дня', 182, ''),
 (113, 3500, '', '2018-10-01 00:00:00', '2018-10-01 00:00:00', 'Академия ДТЭК', '1 день', 177, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subjects`
+--
+
+CREATE TABLE `subjects` (
+  `id_subdject` int(11) NOT NULL,
+  `id_event` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `subjects`
+--
+
+INSERT INTO `subjects` (`id_subdject`, `id_event`) VALUES
+(4, 94),
+(8, 107);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subject_type`
+--
+
+CREATE TABLE `subject_type` (
+  `id` int(11) NOT NULL,
+  `subject_name` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `subject_type`
+--
+
+INSERT INTO `subject_type` (`id`, `subject_name`) VALUES
+(1, 'Коммуникации'),
+(2, 'Продажи'),
+(3, 'Личное развитие'),
+(4, 'HR'),
+(5, 'Маркетинг'),
+(6, 'Тимбилдинг'),
+(7, 'Инновационность'),
+(8, 'Менеджмент');
 
 -- --------------------------------------------------------
 
@@ -1661,6 +1717,60 @@ INSERT INTO `treners_programs` (`id`, `treners`, `programs`) VALUES
 (205, 26, 94),
 (206, 47, 182),
 (207, 1, 177);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `trener_event`
+--
+
+CREATE TABLE `trener_event` (
+  `id_trener` int(11) NOT NULL,
+  `id_event` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `trener_event`
+--
+
+INSERT INTO `trener_event` (`id_trener`, `id_event`) VALUES
+(1, 94),
+(2, 101);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `types`
+--
+
+CREATE TABLE `types` (
+  `id_type` int(11) NOT NULL,
+  `id_event` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `type_event`
+--
+
+CREATE TABLE `type_event` (
+  `id` int(11) NOT NULL,
+  `type_name` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `type_event`
+--
+
+INSERT INTO `type_event` (`id`, `type_name`) VALUES
+(1, 'Модульная программа'),
+(2, 'Тренинг'),
+(3, 'Мастер-класс'),
+(4, 'Видео/Электронный курс'),
+(5, 'Консалтинговая услуга'),
+(6, 'Международные программы'),
+(7, 'Программы Партнеров Академии ДТЭК');
 
 -- --------------------------------------------------------
 
@@ -1956,6 +2066,19 @@ ALTER TABLE `parameters`
   ADD KEY `program` (`program`);
 
 --
+-- Indexes for table `subjects`
+--
+ALTER TABLE `subjects`
+  ADD KEY `id_subdject` (`id_subdject`),
+  ADD KEY `id` (`id_event`);
+
+--
+-- Indexes for table `subject_type`
+--
+ALTER TABLE `subject_type`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `svg`
 --
 ALTER TABLE `svg`
@@ -1987,6 +2110,26 @@ ALTER TABLE `treners_programs`
   ADD UNIQUE KEY `id` (`id`),
   ADD KEY `treners` (`treners`),
   ADD KEY `programs` (`programs`);
+
+--
+-- Indexes for table `trener_event`
+--
+ALTER TABLE `trener_event`
+  ADD KEY `id_trener` (`id_trener`),
+  ADD KEY `id_t_e` (`id_event`);
+
+--
+-- Indexes for table `types`
+--
+ALTER TABLE `types`
+  ADD KEY `id_type` (`id_type`),
+  ADD KEY `id_event` (`id_event`);
+
+--
+-- Indexes for table `type_event`
+--
+ALTER TABLE `type_event`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users_all`
@@ -2121,6 +2264,12 @@ ALTER TABLE `parameters`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
+-- AUTO_INCREMENT for table `subject_type`
+--
+ALTER TABLE `subject_type`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `svg`
 --
 ALTER TABLE `svg`
@@ -2143,6 +2292,12 @@ ALTER TABLE `treners_blog`
 --
 ALTER TABLE `treners_programs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=208;
+
+--
+-- AUTO_INCREMENT for table `type_event`
+--
+ALTER TABLE `type_event`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users_all`
@@ -2266,6 +2421,13 @@ ALTER TABLE `parameters`
   ADD CONSTRAINT `parameters_ibfk_1` FOREIGN KEY (`program`) REFERENCES `mod_programs` (`id`);
 
 --
+-- Constraints for table `subjects`
+--
+ALTER TABLE `subjects`
+  ADD CONSTRAINT `id` FOREIGN KEY (`id_event`) REFERENCES `mod_programs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `id_subdject` FOREIGN KEY (`id_subdject`) REFERENCES `subject_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `treners`
 --
 ALTER TABLE `treners`
@@ -2284,6 +2446,20 @@ ALTER TABLE `treners_blog`
 ALTER TABLE `treners_programs`
   ADD CONSTRAINT `treners_programs_ibfk_1` FOREIGN KEY (`treners`) REFERENCES `treners` (`id`),
   ADD CONSTRAINT `treners_programs_ibfk_2` FOREIGN KEY (`programs`) REFERENCES `mod_programs` (`id`);
+
+--
+-- Constraints for table `trener_event`
+--
+ALTER TABLE `trener_event`
+  ADD CONSTRAINT `id_t_e` FOREIGN KEY (`id_event`) REFERENCES `mod_programs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `id_trener` FOREIGN KEY (`id_trener`) REFERENCES `treners` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `types`
+--
+ALTER TABLE `types`
+  ADD CONSTRAINT `id_event` FOREIGN KEY (`id_event`) REFERENCES `mod_programs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `id_type` FOREIGN KEY (`id_type`) REFERENCES `type_event` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `users_all_video_course`

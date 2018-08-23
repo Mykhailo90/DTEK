@@ -1,0 +1,139 @@
+@media (max-width: 1200px) {
+  .filtr_form{
+    margin-top: 20px;
+  }
+}
+.delimeter{
+display: flex;
+}
+.left{
+  width: 28%;
+  background-color: #f7d445;
+  height: 30px;
+}
+.right{
+  width: 72%;
+  background-color: #333333;
+  height: 30px;
+}
+
+ .programs_page{
+  display: flex;
+}
+
+.filtr{
+  width: 28%;
+  /* background-color: #f7d445; */
+
+}
+
+.prog_list{
+  /* background-color: blue; */
+  width: 72%;
+}
+.prog_cards{
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+  height: 150px;
+  background-color: grey;
+  display: flex;
+  vertical-align: center;
+
+}
+.pagination{
+  /* width: 50%; */
+  margin: auto;
+  margin-left: 26%;
+  margin-top: 20px;
+  height: 30px;
+}
+.pagination a{
+  margin: 3px;
+}
+.prog_image{
+  width: 20%;
+  /* background-image: url(../../img/corporate.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; */
+}
+.pag_color{
+  background-color: #f7d445;
+}
+
+.filtr_form{
+  width: 80%;
+  max-width: 300px;
+  margin: auto;
+  margin-top: 40%;
+  background-color: #333333;
+  color: white;
+  border: 3px solid #f7d445;
+  box-shadow: 7px 3px 3px grey;
+}
+.tr{
+  /* width: 90%; */
+  margin: auto;
+}
+.button{
+  text-align: center;
+}
+.filt_button{
+  background-color: #f7d445;
+  padding: 15px 40px 15px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: "RobotoBold";
+}
+#current {
+  color: #000;
+  font-weight: bold;
+  background-color: #f7d445;
+
+}
+.filt_button:hover{
+  /* border: 3px solid #f7d445; */
+  box-shadow: 3px 3px 3px grey;
+}
+.prog_cards:hover {
+  background-color: #f7d445;
+  /* border: 3px solid #f7d445; */
+  box-shadow: 7px 3px 3px grey;
+}
+.r select{
+  width: 250px;
+}
+
+@media (max-width: 1200px) {
+  .programs_page{
+    display: block;
+
+  }
+  .filtr{
+    width: 100%;
+    float: none;
+    /* background-color: #f7d445; */
+  }
+  .prog_list{
+    width: 100%;
+    float: none;
+    /* background-color: #f7d445; */
+  }
+  .filtr_form{
+    margin-top: 20px;
+    max-width: 100%;
+  }
+  .tr{
+    display: flex;
+    flex-wrap:  wrap;
+    width: 100%;
+    margin: auto;
+  }
+  .r{
+    margin-left: 30px;
+  }
+}
