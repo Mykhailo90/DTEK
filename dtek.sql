@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Aug 23, 2018 at 08:55 PM
+-- Host: localhost:3307
+-- Generation Time: Aug 25, 2018 at 03:36 AM
 -- Server version: 5.7.22
--- PHP Version: 7.1.19
+-- PHP Version: 7.1.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -55,7 +55,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `popular_programs` ()  BEGIN
 	SELECT * FROM `mod_programs` WHERE check_on=1 AND (parent_page='85' OR parent_page='84' OR parent_page='81');
 END$$
 
-CREATE DEFINER=`msarapii`@`localhost` PROCEDURE `programs` (IN `arg` VARCHAR(64))  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `programs` (IN `arg` VARCHAR(64))  BEGIN
  IF arg = 'list' THEN
      SELECT * FROM mod_programs WHERE parent_page IN(84, 85, 86, 87 , 88);
     ELSEIF arg = 'module_programs' THEN SELECT * FROM mod_programs WHERE parent_page = 84;
@@ -65,6 +65,18 @@ CREATE DEFINER=`msarapii`@`localhost` PROCEDURE `programs` (IN `arg` VARCHAR(64)
     ELSEIF arg = 'energy_management' THEN SELECT * FROM mod_programs WHERE parent_page = 88;
     END IF;
     
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `subject_type` ()  BEGIN
+	SELECT * FROM subject_type;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `treners` ()  BEGIN
+	SELECT id, trener_name FROM treners;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `type_event` ()  BEGIN
+	SELECT * FROM type_event;
 END$$
 
 DELIMITER ;

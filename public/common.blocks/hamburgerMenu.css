@@ -35,7 +35,7 @@
 
 .menu--off {
     position: absolute;
-    left: -50%;
+    left: -150%;
     width: 50%;
     display: block;
     background: #eee;

@@ -130,7 +130,7 @@
                 <section class="menu menu--off">
                     <?php foreach($navMenu as $item) { ?>
                         <div>
-                            <a href="<?php echo $item['path_to_program']; ?>"><?php echo $item['title']; ?></a>
+                            <a href="/<?php echo $item['path_to_program']; ?>"><?php echo $item['title']; ?></a>
                         </div>
                     <?php } ?>
                 </section>
@@ -154,7 +154,7 @@
         <ul class="main-menu">
           <?php foreach($navMenu as $item) { ?>
           <li>
-            <a href="<?php echo $item['path_to_program']; ?>"><?php echo $item['title']; ?></a>
+            <a href="/<?php echo $item['path_to_program']; ?>"><?php echo $item['title']; ?></a>
           </li>
           <?php } ?>
         </ul>
@@ -195,18 +195,21 @@
 
       <footer>
           <div class="frame">
-              <div class="footer_blocks_0">
+            <div class="frame_left">
+              <div class="footer_blocks">
                   <h2>Академия ДТЭК</h2>
                   <ul>
                       <li class ="f_contacts">
                           <div>
                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 211.621 211.621"><path d="M180.948 27.722C163.07 9.844 139.298 0 114.018 0c-4.144 0-7.5 3.358-7.5 7.5 0 4.142 3.357 7.5 7.5 7.5 21.275 0 41.278 8.284 56.323 23.33 15.047 15.044 23.332 35.048 23.33 56.325 0 4.142 3.358 7.5 7.5 7.5 4.143 0 7.5-3.358 7.5-7.5.002-25.284-9.843-49.055-27.722-66.933z"></path><path d="M150.096 94.656c0 4.142 3.358 7.5 7.5 7.5 4.143 0 7.5-3.36 7.5-7.5-.002-28.16-22.916-51.074-51.078-51.078-4.143 0-7.5 3.357-7.5 7.5 0 4.14 3.356 7.5 7.498 7.5 19.893.003 36.078 16.187 36.08 36.078zM133.5 132.896c-11.432-.592-17.256 7.91-20.05 11.994-2.338 3.42-1.462 8.086 1.957 10.425 3.42 2.34 8.086 1.463 10.425-1.956 3.3-4.826 4.795-5.585 6.823-5.49 6.49.764 32.056 19.498 34.616 25.356.643 1.725.62 3.416-.07 5.473-2.684 7.965-7.127 13.563-12.85 16.187-5.44 2.493-12.106 2.267-19.277-.65-26.777-10.915-50.17-26.146-69.53-45.272-.01-.008-.017-.015-.024-.023-19.087-19.34-34.29-42.705-45.186-69.44-2.92-7.178-3.145-13.846-.652-19.283 2.624-5.725 8.222-10.168 16.18-12.85 2.065-.69 3.753-.713 5.462-.077 5.88 2.57 24.612 28.133 25.368 34.55.108 2.105-.657 3.6-5.478 6.893-3.42 2.336-4.3 7.003-1.962 10.423 2.336 3.42 7.002 4.297 10.423 1.96 4.086-2.79 12.586-8.597 11.996-20.068-.65-11.982-23.957-43.713-35.094-47.808-4.953-1.846-10.163-1.878-15.49-.09C19.095 37.19 10.438 44.39 6.045 53.97c-4.26 9.293-4.124 20.076.396 31.188 11.66 28.612 27.976 53.647 48.49 74.412l.154.15c20.75 20.477 45.756 36.762 74.33 48.41 5.722 2.326 11.357 3.49 16.746 3.49 5.074 0 9.932-1.03 14.438-3.097 9.58-4.39 16.778-13.048 20.818-25.044 1.784-5.32 1.755-10.527-.077-15.457-4.108-11.167-35.84-34.475-47.84-35.127z"></path></svg>
+
                           </div>
                           <a href="tel:+38 044 594 42 03">+38 044 594 42 03</a>
                       </li>
                       <li class="f_contacts">
                           <div>
                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 241.061 241.061"><path d="M198.602 70.402l-78.063 68.79L42.46 70.4c-3.11-2.74-7.85-2.44-10.587.668s-2.44 7.847.67 10.586l83.04 73.16c1.416 1.247 3.187 1.87 4.957 1.87s3.542-.623 4.96-1.872l83.02-73.16c3.108-2.737 3.407-7.477.67-10.585-2.74-3.106-7.48-3.406-10.588-.668z"></path><path d="M218.56 38.53H22.5C10.094 38.53 0 48.62 0 61.03v119c0 12.408 10.094 22.5 22.5 22.5h196.06c12.407 0 22.5-10.092 22.5-22.5v-119c0-12.407-10.093-22.5-22.5-22.5zm7.5 141.5c0 4.136-3.363 7.5-7.5 7.5H22.5c-4.136 0-7.5-3.364-7.5-7.5v-119c0-4.136 3.364-7.5 7.5-7.5h196.06c4.137 0 7.5 3.364 7.5 7.5v119z"></path></svg>
+
                           </div>
                           <a href="mailto:academy@dtek.com">academy@dtek.com</a>
                       </li>
@@ -221,43 +224,36 @@
                       </li>
                   </ul>
               </div>
-              <div class="footer_blocks_1">
+              <div class="footer_blocks">
                   <h2>О компании</h2>
                   <ul>
-                      <li><a href="https://dtekacademy.com/academy/">Академия ДТЭК</a></li>
-                      <li><a href="https://dtekacademy.com/conference_service/">Конференц сервис</a></li>
-                      <li><a href="https://dtekacademy.com/treners/">Тренеры и эксперты</a></li>
-                      <!--li><a href="https://dtekacademy.com/">Партнеры</a></li-->
+                      <li class="f_contacts"><a href="https://dtekacademy.com/academy/">Академия ДТЭК</a></li>
+                      <li class="f_contacts"><a href="https://dtekacademy.com/conference_service/">Конференц сервис</a></li>
+                      <li class="f_contacts"><a href="https://dtekacademy.com/treners/">Тренеры и эксперты</a></li>
+
                   </ul>
               </div>
-              <div class="footer_blocks_1">
+            </div>
+            <div class="frame_right">
+              <div class="footer_blocks">
                   <h2>Программы обучения</h2>
                   <ul>
-                      <li><a href="programs/module_programs/">Долгосрочные программы</a></li>
-                      <li><a href="programs/trenings/">Мастер классы</a></li>
-                      <li><a href="programs/team_buildings/">Тимбилдинг</a></li>
-                      <!--li><a href="https://dtekacademy.com/">Тренинги</a></li-->
+                      <li class="f_contacts"><a href="/programs/module_programs/">Долгосрочные программы</a></li>
+                      <li class="f_contacts"><a href="/programs/trenings/">Мастер классы</a></li>
+                      <li class="f_contacts"><a href="/programs/team_buildings/">Тимбилдинг</a></li>
                   </ul>
               </div>
-              <div class="footer_blocks_1">
+              <div class="footer_blocks">
                   <h2>Консалтинг</h2>
                   <ul>
-                      <li><a href="https://dtekacademy.com/consulting/strategic_sessions/">Стратегические сессии</a></li>
-                      <li><a href="https://dtekacademy.com/consulting/estimation_center/">Центры оценки</a></li>
-                      <li><a href="https://dtekacademy.com/consulting/">Все консалтинговые программы</a></li>
-                      <!--li><a href="https://dtekacademy.com/">Популярные</a></li-->
+                      <li class="f_contacts"><a href="https://dtekacademy.com/consulting/strategic_sessions/">Стратегические сессии</a></li>
+                      <li class="f_contacts"><a href="https://dtekacademy.com/consulting/estimation_center/">Центры оценки</a></li>
+                      <li class="f_contacts"><a href="https://dtekacademy.com/consulting/">Все консалтинговые программы</a></li>
                   </ul>
               </div>
-              <!--div class="footer_blocks_1">
-                  <h3>Поддержка</h3>
-                  <ul>
-                      <li><a href="https://dtekacademy.com/">Регистрация</a></li>
-                      <li><a href="https://dtekacademy.com/">Оплата услуг</a></li>
-                      <li><a href="https://dtekacademy.com/">Конфидициальность</a></li>
-                      <li><a href="https://dtekacademy.com/">Лицензия</a></li>
-                  </ul>
-              </div-->
 
+
+            </div>
           </div>
 
           <div class="copyrights frame">

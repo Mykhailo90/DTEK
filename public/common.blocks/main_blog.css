@@ -91,3 +91,12 @@
 .blog-container .first:hover {
     cursor: pointer;
 }
+@media (max-width: 767px) {
+  .first{
+    display: none;
+  }
+  .blog-other-cards{
+    width: 500px;
+    margin: auto;
+  }
+}

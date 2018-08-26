@@ -35,7 +35,7 @@ display: flex;
   width: 80%;
   margin: auto;
   margin-top: 20px;
-  height: 150px;
+  min-height: 150px;
   background-color: grey;
   display: flex;
   vertical-align: center;
@@ -51,12 +51,7 @@ display: flex;
 .pagination a{
   margin: 3px;
 }
-.prog_image{
-  width: 20%;
-  /* background-image: url(../../img/corporate.jpg);
-  background-size: cover;
-  background-repeat: no-repeat; */
-}
+
 .pag_color{
   background-color: #f7d445;
 }
@@ -71,8 +66,7 @@ display: flex;
   border: 3px solid #f7d445;
   box-shadow: 7px 3px 3px grey;
 }
-.tr{
-  /* width: 90%; */
+.filter_block{
   margin: auto;
 }
 .button{
@@ -107,6 +101,24 @@ display: flex;
 .r select{
   width: 250px;
 }
+.prog_cards h2{
+  margin: auto;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic;
+  color: black;
+}
+.text_content{
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+  text-indent: 1.5em;
+}
+.prog_cards a{
+  text-decoration: none;
+  color: black;
+}
 
 @media (max-width: 1200px) {
   .programs_page{
@@ -135,5 +147,10 @@ display: flex;
   }
   .r{
     margin-left: 30px;
+  }
+}
+@media (max-width: 750px) {
+  .prog_image{
+    display: none;
   }
 }

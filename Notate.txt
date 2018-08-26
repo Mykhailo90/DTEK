@@ -80,7 +80,7 @@
 	    SELECT * FROM `mod_programs` WHERE check_on=1 AND (parent_page='85' OR parent_page='84' OR parent_page='81');
     END//
 
-13. Добавить хранимую процедуру для получения списокf возможных адресов. Имя хранимой процедуры "path_to_program"
+13. Добавить хранимую процедуру для получения списка возможных адресов. Имя хранимой процедуры "path_to_program"
 
     DELIMITER //
 
@@ -106,7 +106,7 @@
         ELSEIF arg = 'energy_management' THEN SELECT * FROM mod_programs WHERE parent_page = 88;
         END IF;
 
-        END
+        END//
 
 15. Создать таблицу type_event с полями: id_type, type_name. Для хранения типов классификации мероприятий.
 16. Создать таблицу types с полями из внешних ключей id_type, id_event. Первое поле ссылается на id_type
@@ -118,5 +118,35 @@
     таблицы subject_types, второе на поле id таблицы mod_programs. Обязательно внести недостающие событие в
     таблицу мod_programs и subjects для выборки.
 
-19 Создать таблицу trener_event с полями id_trener, id_event согласовать с таблицами treners и mod_programs.
+19. Создать таблицу trener_event с полями id_trener, id_event согласовать с таблицами treners и mod_programs.
     Заполнить таблицу значениями для тестирования вывода
+
+20. Добавить хранимую процедуру для фильтра("Тип") на странице "programs". Имя хранимой процедуры "type_event"
+
+        DELIMITER //
+
+        CREATE PROCEDURE type_event ()
+
+        BEGIN
+            SELECT * FROM type_event;
+        END//
+
+21. Добавить хранимую процедуру для фильтра("Тематика") на странице "programs". Имя хранимой процедуры "subject_type"
+
+        DELIMITER //
+
+        CREATE PROCEDURE subject_type ()
+
+        BEGIN
+	        SELECT * FROM subject_type;
+        END//
+
+21. Добавить хранимую процедуру для фильтра("Куратор") на странице "programs". Имя хранимой процедуры "treners"
+
+        DELIMITER //
+
+        CREATE PROCEDURE treners ()
+
+        BEGIN
+        	SELECT id, trener_name FROM treners;
+        END//
